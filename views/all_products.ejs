@@ -1,0 +1,32 @@
+<% include _layouts/header %>
+
+<div class="col-lg-12" style="padding-top: 100px;">
+        
+        <div class="row ">
+            <% products.forEach(function(p){ %>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                <a href="/products/<%= p.category %>/<%= p.slug %>"><img class="img-fluid img-thumbnail" style="width:500px;height:300px;" height="200px"  src="/product_images/<%= p.id %>/<%= p.image %>" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/products/<%= p.category %>/<%= p.slug %>"> <%= p.title %></a>
+                    </h4>
+                    <h5>
+                        $<% parseFloat(p.price).toFixed(2) %>
+                        <%= p.price %>
+                    </h5>
+                    <p class="card-text"><%= p.desc %>!</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small><br>
+                <a class="vd" href="/products/<%= p.category %>/<%= p.slug %>">View Details</a>
+                </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+            <!-- /.row -->
+</div>
+
+
+<% include _layouts/footer %>
